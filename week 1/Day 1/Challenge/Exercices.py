@@ -55,7 +55,9 @@ print(basket.count("Apples"))
 print(basket.clear())
 
 # Exercice 8
+
 print("Exercice 8\n------------")
+# 1/
 sandwich_orders = ["Tuna sandwich", "Pastrami sandwich", "Avocado sandwich", "Pastrami sandwich", "Egg sandwich", "Chicken sandwich", "Pastrami sandwich"]
 i = 0
 new_sandwich_orders=[]
@@ -67,6 +69,18 @@ while i< len(sandwich_orders):
     else:
         continue
 print(new_sandwich_orders)
+sandwich_orders=new_sandwich_orders
+# 2/
+finished_sandwiches=[]
+while sandwich_orders:
+    current_sandwich = sandwich_orders.pop(0)
+    print(f"I made your {current_sandwich}")
+    finished_sandwiches.append(current_sandwich)
+print("\nSandwichs prepares :")
+for sandwich in finished_sandwiches:
+    print(f"- {sandwich}")
+
+
     
 
 
