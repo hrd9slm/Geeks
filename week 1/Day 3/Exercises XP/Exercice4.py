@@ -20,7 +20,6 @@ class Zoo():
     
     def sort_animals(self):
         dicti={}
-    
         for animal in self.animals:
             first_letter = animal[0].lower()
             if first_letter not in dicti:
