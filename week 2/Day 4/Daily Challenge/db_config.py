@@ -19,5 +19,3 @@ def connect_db():
         print("Erreur de connexion à PostgreSQL :", e)
         return None
     
-conn=connect_db()
-print(conn)
