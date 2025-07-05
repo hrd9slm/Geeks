@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Résultat</title>
+  <style>
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .header-container > div {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-container">
+    <div>
+      <h3>Météo pour {{ info.city }}</h3>
+      <ul>
+        <li>🌡 Température : {{ info.temp }} °C</li>
+        <li>💧 Humidité : {{ info.humidity }} %</li>
+        <li>☁️ Description : {{ info.desc }}</li>
+        <li>⚠️ Alerte météo : {{ alert }}</li>
+      </ul>
+    </div>
+    <div>
+      <h3>📊 Température - Historique</h3>
+      <img src="/api/weather/{{ info.city }}/chart" alt="graphique météo">
+    </div>
+  </div>
+
+  <br>
+  <a href="/">⬅ Retour</a>
+</body>
+</html>
