@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge: Create a solar system</title>
+    <style>
+      body {
+        background-color: black;
+        padding: 10px;
+      }
+      .solar-system {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+
+      .planet {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .mercury {
+        background-color: gray;
+      }
+      .venus {
+        background-color: goldenrod;
+      }
+      .earth {
+        background-color: dodgerblue;
+      }
+      .mars {
+        background-color: red;
+      }
+      .jupiter {
+        background-color: orange;
+      }
+      .saturn {
+        background-color: peru;
+      }
+      .uranus {
+        background-color: lightblue;
+      }
+      .neptune {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="solar-system"></div>
+  </body>
+  <script>
+    //1
+
+    const planets = [
+      "Mercury",
+      "Venus",
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Saturn",
+      "Uranus",
+      "Neptune",
+    ];
+
+    //2
+    const section = document.querySelector(".solar-system");
+
+    // planets.forEach((planet) => {
+    //   const planetDiv = document.createElement("div");
+    //   planetDiv.classList.add("planet");
+    //   planetDiv.textContent = planet;
+    //   section.appendChild(planetDiv);
+    // });
+
+    //3
+    const colors = [
+      "mercury",
+      "venus",
+      "earth",
+      "mars",
+      "jupiter",
+      "saturn",
+      "uranus",
+      "neptune",
+    ];
+    planets.forEach((planet, index) => {
+      const planetDiv = document.createElement("div");
+      planetDiv.classList.add("planet", colors[index]);
+      planetDiv.textContent = planet;
+      section.appendChild(planetDiv);
+    });
+  </script>
+</html>

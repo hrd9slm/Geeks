@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script >
+    let hotelCost=()=>{
+    let nuits=prompt("le nombre de nuit (doit etre un nombre):")
+    while(nuits == null || isNaN(nuits) || Number(nuits) <= 0){
+        nuits=prompt("le nombre de nuit (doit etre un nombre):")
+    }
+    return Number(nuits)*140
+}
+let planeRideCost=()=>{
+    let x;
+    let destination;
+
+  while (
+    destination === undefined || destination === null || destination.trim() === "" || !isNaN(destination)) {
+    destination = prompt("Quel est votre destination (doit être un mot) :");
+  }
+    if (destination.toLowerCase()==="londres"){
+        x= 183
+    }
+    else if (destination.toLowerCase()==="paris"){
+         x=220
+    }
+    else {
+        x= 300
+    }
+    return x
+}
+
+let rentalCarCost=()=>{
+    let jours;
+    let coutVoiture=40;
+  while (
+    jours === undefined || jours === null || isNaN(jours)) {
+    jours = prompt("quel est le nombre de jours pendant lesquels vous souhaitez louer la voiture :");
+  }
+    if (Number(jours)>=10){
+       return (Number(jours)*coutVoiture)*(1-0.05)
+    }
+   
+    else {
+       return Number(jours)*coutVoiture
+    }
+}
+let totalVacationCost=() =>{
+    let hotel = hotelCost();
+    let plane = planeRideCost();
+    let car = rentalCarCost();
+
+    let total = hotel + plane + car;
+
+    console.log(`Le coût de l'hôtel : $${hotel}`);
+    console.log(`Le coût de l’avion : $${plane}`);
+    console.log(`Le coût de la voiture : $${car}`);
+    console.log(`Le coût total des vacances est : $${total}`);
+}
+
+// const cost = hotelCost();
+// const RideCost=planeRideCost()
+//const CarCost=rentalCarCost()
+//console.log("plane Ride cost:", RideCost);
+// console.log("Hotel cost:", cost);
+ //console.log("Car cost:", CarCost);
+ totalVacationCost()
+
+</script>
+</html>

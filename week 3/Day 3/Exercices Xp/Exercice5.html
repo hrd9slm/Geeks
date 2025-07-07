@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">Users:</div>
+    <ul class="list student_list university attendance">
+      <li>John</li>
+      <li>Pete</li>
+    </ul>
+    <ul class="list student_list">
+      <li>David</li>
+      <li>Sarah</li>
+      <li>Dan</li>
+    </ul>
+  </body>
+  <script>
+    //2.1
+    let div = document.getElementById("container");
+    console.log(div);
+    //2.2
+    let list = document.querySelectorAll(".list");
+    console.log("list", list);
+    let listItem = list[0].children;
+    console.log(listItem);
+    for (let elem of listItem) {
+      if (elem.innerHTML == "Pete") {
+        elem.innerHTML = "Richard ";
+        console.log(elem.innerHTML);
+      }
+    }
+    //2.3
+    let parentElem = document.querySelectorAll(".list")[1];
+    let childElem = parentElem.children[1];
+    console.log("childElem", childElem);
+    parentElem.removeChild(childElem);
+    //2.4
+    for (let elem of list) {
+      for (let item of elem.children) {
+        elem.children[0].innerHTML = "salma";
+      }
+    }
+    //4.1
+    div.style.background = " lightblue";
+    div.style.padding = "10px";
+    //4.2
+    for (let elem of list) {
+      for (let item of elem.children) {
+        if (item.innerHTML == "Dan") {
+          console.log("Dan", item);
+          item.style.display = "none";
+        }
+      }
+    }
+    //4.3
+    for (let elem of list) {
+      for (let item of elem.children) {
+       if (item.textContent.trim() === "Richard") {
+          item.style.border = "1px dashed blue"
+        }
+      }
+    }
+    //4.4
+    document.body.style.fontSize = "20px"
+
+  </script>
+</html>
