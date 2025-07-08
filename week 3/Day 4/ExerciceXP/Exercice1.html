@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    
+    .fade-out {
+      animation: fadeOut 2s forwards;
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+        display: none;
+      }
+    }
+  </style>
+  <body>
+    <article>
+      <h1>Some Facts</h1>
+      <h2>The Chocolate</h2>
+      <h3>History of the chocolate</h3>
+      <p>
+        Chocolate is made from tropical Theobroma cacao tree seeds. Its earliest
+        use dates back to the Olmec civilization in Mesoamerica.
+      </p>
+      <p>
+        After the European discovery of the Americas, chocolate became very
+        popular in the wider world, and its demand exploded.
+      </p>
+      <p>
+        Chocolate has since become a popular food product that millions enjoy
+        every day, thanks to its unique, rich, and sweet taste.
+      </p>
+      <p>But what effect does eating chocolate have on our health?</p>
+    </article>
+     <button id="bold-btn">Make all paragraphs bold</button>
+
+  </body>
+  <script>
+    //1
+    let h1 = document.querySelector("h1");
+    console.log(h1);
+    //2
+    let lastParagraph =
+      document.getElementsByTagName("article")[0].lastElementChild;
+    let article = document.getElementsByTagName("article")[0];
+    console.log("lastParagraph", lastParagraph);
+    console.log("article", article);
+    article.removeChild(lastParagraph);
+    //3
+    let h2 = document.querySelector("h2");
+    h2.addEventListener("click", () => {
+      h2.style.background = "red";
+    });
+    //4
+    let h3 = document.querySelector("h3");
+    h3.addEventListener("click", () => {
+      h3.style.display = "none";
+    });
+    // 5
+    const Btn = document.getElementById("bold-btn");
+    Btn.addEventListener("click", () => {
+      const allParagraphs = document.querySelectorAll("article p");
+      allParagraphs.forEach(p => {
+        p.style.fontWeight = "bold";
+      });
+    });
+     // BONUS 1
+    h1.addEventListener("mouseover", () => {
+      const randomSize = Math.floor(Math.random() * 101); 
+      h1.style.fontSize = `${randomSize}px`;
+     
+    });
+
+    // BONUS 2
+    const secondParagraph = document.querySelectorAll("article p")[1];
+    secondParagraph.addEventListener("mouseover", () => {
+      secondParagraph.classList.add("fade-out");
+       console.log("*")
+    });
+  </script>
+</html>

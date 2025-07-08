@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Challenge: Mad Libs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        margin: 40px;
+        color: #333;
+      }
+      .contenu {
+        width: 50%; 
+        margin: 0 auto;
+      }   
+
+      h1 {
+        color: #444;
+        text-align: center;
+
+      }
+
+      label {
+        display: inline-block;
+        width: 150px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"] {
+        padding: 6px;
+        width: 200px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #story {
+        font-style: italic;
+        font-weight: bold;
+        color: #006400;
+      }
+
+      #error {
+        color: red;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenu">
+         <h1>Mad Libs</h1>
+
+    <form id="libform">
+      <label for="noun">Noun:</label
+      ><input type="text" id="noun" name="noun" value="" required /><br />
+      <label for="adjective">Adjective:</label
+      ><input type="text" id="adjective" name="adjective" required /><br />
+      <label for="person">Someone's Name:</label
+      ><input type="text" id="person" name="person" required /><br />
+      <label for="verb">Verb:</label
+      ><input type="text" id="verb" name="verb" required /><br />
+      <label for="place">A place:</label
+      ><input type="text" id="place" name="place" required /><br />
+      <button id="lib-button">Lib it!</button>
+    </form>
+
+    <p>
+      Generated story:
+      <span id="story">
+      
+      </span>
+         <div id="error" style="color: red;"></div>
+     
+    </p>
+    </div>
+   
+
+    <script>
+      let btn = document.getElementById("lib-button");
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let noun = document.querySelector('input[name="noun"]').value;
+        let adjective = document.querySelector('input[name="adjective"]').value;
+        let person = document.querySelector('input[name="person"]').value;
+        let verb = document.querySelector('input[name="verb"]').value;
+        let place = document.querySelector('input[name="place"]').value;
+        console.log("noun", noun);
+        console.log("person", person);
+           let span = document.getElementById("story");
+           let error =document.getElementById("error")
+        if (
+          !noun || !adjective || !person || !verb || !place
+        ) { error.textContent = "SVP Entrer tous les champs";
+      return;
+    }
+          const stories = [
+            `One day, ${person} found a ${adjective} ${noun} and decided to ${verb} it at the ${place}.`,
+            `${person} went to the ${place} with a ${noun}, trying to ${verb} like a true ${adjective} hero.`,
+            `In the heart of the ${place}, ${person} ${verb} the ${adjective} ${noun} with great enthusiasm.`,
+          ];
+
+       
+        
+          console.log("story",stories)
+          error.textContent = "";
+          span.textContent = stories;
+        
+        
+      });
+    </script>
+  </body>
+</html>
